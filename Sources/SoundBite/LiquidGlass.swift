@@ -45,8 +45,8 @@ struct LiquidGlass: ViewModifier {
                     )
             )
             // 4. Refractive Shadow
-            // Uses standard shadow but tighter to simulate contact
-            .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 5)
+            // Subtler shadow
+            .shadow(color: Color.black.opacity(0.1), radius: 6, x: 0, y: 3)
     }
 }
 

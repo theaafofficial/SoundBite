@@ -124,8 +124,8 @@ struct PlayerView: View {
             }
             .padding(.vertical, 8)
             .padding(.horizontal, 18)
-            .padding(.vertical, 8)
-            .padding(.horizontal, 18)
+            .padding(.vertical, 4) // Reduced padding
+            .padding(.horizontal, 12)
             .liquidGlass(cornerRadius: 30) // LiquidGlass Tab Bar
             
             Spacer()
@@ -446,7 +446,13 @@ struct QueueView: View {
                                     Spacer()
                                 }
                                 .padding(.horizontal, 16)
-                                .liquidGlass(cornerRadius: 12, tint: .white.opacity(0.04)) // Queue Row Glass
+                                .padding(.vertical, 8) // Standard row padding
+                                .overlay(
+                                    Rectangle()
+                                        .fill(.white.opacity(0.1))
+                                        .frame(height: 1),
+                                    alignment: .bottom
+                                )
                             }
                             .buttonStyle(.plain)
                         }
@@ -522,7 +528,8 @@ struct SearchView: View {
                                 }
                                 .padding(.horizontal, 16)
                                 .padding(.vertical, 6)
-                                .liquidGlass(cornerRadius: 14, tint: .white.opacity(0.05))
+                                .background(Color.white.opacity(0.05)) // Back to clean background
+                                .cornerRadius(12)
                             }
                             .buttonStyle(.plain)
                             .padding(.horizontal)
@@ -652,7 +659,8 @@ struct LibraryView: View {
                                             }
                                         }
                                         .padding(8)
-                                        .liquidGlass(cornerRadius: 12, tint: .white.opacity(0.04)) // Library Item Glass
+                                        .background(Color.white.opacity(0.05)) // Back to clean background
+                                        .cornerRadius(12)
                                     }
                                     .buttonStyle(.plain)
                                 }
