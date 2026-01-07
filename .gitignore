@@ -1,0 +1,18 @@
+# Xcode
+.DS_Store
+build/
+DerivedData/
+*.app
+*.dSYM
+*.xcodeproj/project.xcworkspace
+*.xcodeproj/xcuserdata
+*.xcworkspace/xcuserdata
+.swiftpm/
+
+# OS
+.DS_Store
+._*
+Desktop.ini
+
+# Build
+SoundBite.app
