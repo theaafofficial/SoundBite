@@ -1,5 +1,7 @@
 # SoundBite 🎵
 
+![SoundBite Logo](Logo.png)
+
 **SoundBite** is a minimalist, glass-morphic YouTube Music player for macOS. It focuses on a clean aesthetic and bulletproof audio reliability, stripping away the clutter of the standard web interface to provide a native-feeling experience.
 
 ## Features ✨
