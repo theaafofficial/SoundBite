@@ -487,8 +487,6 @@ struct SearchView: View {
                 }
             }
             .padding(10)
-            }
-            .padding(10)
             .liquidGlass(cornerRadius: 16, tint: .white.opacity(0.08)) // LiquidGlass Search Field
             .padding(.horizontal)
             .padding(.top, 20)
@@ -550,6 +548,7 @@ struct SearchView: View {
                 Spacer()
             }
     }
+}
 }
 
 struct ControlButton: View {
