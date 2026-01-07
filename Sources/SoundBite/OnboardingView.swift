@@ -22,17 +22,27 @@ struct OnboardingView: View {
                 Spacer()
                 
                 // MARK: - Logo Section
-                ZStack {
-                    Circle()
-                        .fill(.purple.opacity(0.2))
+                if let path = Bundle.main.path(forResource: "Logo", ofType: "png"),
+                   let nsImage = NSImage(contentsOfFile: path) {
+                    Image(nsImage: nsImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
                         .frame(width: 140, height: 140)
-                        .blur(radius: 20)
+                        .shadow(color: .black.opacity(0.4), radius: 12, x: 0, y: 8)
                         .pulseAnimationEffect()
-                    
-                    Image(systemName: "waveform.circle.fill")
-                        .font(.system(size: 90))
-                        .foregroundStyle(.linearGradient(colors: [.white, .white.opacity(0.7)], startPoint: .top, endPoint: .bottom))
-                        .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
+                } else {
+                    ZStack {
+                        Circle()
+                            .fill(.purple.opacity(0.2))
+                            .frame(width: 140, height: 140)
+                            .blur(radius: 20)
+                            .pulseAnimationEffect()
+                        
+                        Image(systemName: "waveform.circle.fill")
+                            .font(.system(size: 90))
+                            .foregroundStyle(.linearGradient(colors: [.white, .white.opacity(0.7)], startPoint: .top, endPoint: .bottom))
+                            .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
+                    }
                 }
                 
                 VStack(spacing: 12) {
@@ -62,12 +72,9 @@ struct OnboardingView: View {
                     .foregroundStyle(.white)
                     .frame(width: 240, height: 50)
                     .background(
-                        RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .fill(.white.opacity(0.1))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                    .stroke(.white.opacity(0.2), lineWidth: 1)
-                            )
+                         // LiquidGlass Button
+                         Color.black.opacity(0.2) // Base dark tint
+                             .liquidGlass(cornerRadius: 16, tint: .white.opacity(0.1))
                     )
                 }
                 .buttonStyle(PlainButtonStyle())

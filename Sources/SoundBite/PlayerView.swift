@@ -124,9 +124,9 @@ struct PlayerView: View {
             }
             .padding(.vertical, 8)
             .padding(.horizontal, 18)
-            .background(.ultraThinMaterial)
-            .clipShape(Capsule())
-            .overlay(Capsule().stroke(.white.opacity(0.15), lineWidth: 1))
+            .padding(.vertical, 8)
+            .padding(.horizontal, 18)
+            .liquidGlass(cornerRadius: 30) // LiquidGlass Tab Bar
             
             Spacer()
             
@@ -316,12 +316,8 @@ struct NowPlayingView: View {
                 LoadingView()
             }
         }
-        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-        .shadow(color: .black.opacity(0.3), radius: 12, x: 0, y: 6)
-        .overlay(
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .stroke(.white.opacity(0.1), lineWidth: 1)
-        )
+        .cornerRadius(20) // Container shape
+        .liquidGlass(cornerRadius: 20, tint: .white.opacity(0.02)) // LiquidGlass Artwork Block
     }
     
     private var trackInfoView: some View {
@@ -450,8 +446,7 @@ struct QueueView: View {
                                     Spacer()
                                 }
                                 .padding(.horizontal, 16)
-                                .padding(.vertical, 4)
-                                .contentShape(Rectangle()) // Make full row tappable
+                                .liquidGlass(cornerRadius: 12, tint: .white.opacity(0.04)) // Queue Row Glass
                             }
                             .buttonStyle(.plain)
                         }
@@ -486,8 +481,9 @@ struct SearchView: View {
                 }
             }
             .padding(10)
-            .background(Color.white.opacity(0.1))
-            .cornerRadius(12)
+            }
+            .padding(10)
+            .liquidGlass(cornerRadius: 16, tint: .white.opacity(0.08)) // LiquidGlass Search Field
             .padding(.horizontal)
             .padding(.top, 20)
             
@@ -526,8 +522,7 @@ struct SearchView: View {
                                 }
                                 .padding(.horizontal, 16)
                                 .padding(.vertical, 6)
-                                .background(Color.white.opacity(0.05))
-                                .cornerRadius(12)
+                                .liquidGlass(cornerRadius: 14, tint: .white.opacity(0.05))
                             }
                             .buttonStyle(.plain)
                             .padding(.horizontal)
@@ -547,7 +542,6 @@ struct SearchView: View {
                 }
                 Spacer()
             }
-        }
     }
 }
 
@@ -658,8 +652,7 @@ struct LibraryView: View {
                                             }
                                         }
                                         .padding(8)
-                                        .background(Color.white.opacity(0.05))
-                                        .cornerRadius(12)
+                                        .liquidGlass(cornerRadius: 12, tint: .white.opacity(0.04)) // Library Item Glass
                                     }
                                     .buttonStyle(.plain)
                                 }

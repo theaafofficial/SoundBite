@@ -20,6 +20,13 @@ cp "$BUILD_DIR/$APP_NAME" "$APP_BUNDLE/Contents/MacOS/$APP_NAME"
 # Sign with entitlements
 codesign --force --entitlements "$APP_NAME.entitlements" -s - "$APP_BUNDLE/Contents/MacOS/$APP_NAME"
 
+# Generate Icon
+echo "Generating Icon..."
+chmod +x generate_icns.sh
+./generate_icns.sh
+cp AppIcon.icns "$APP_BUNDLE/Contents/Resources/AppIcon.icns"
+cp Logo.png "$APP_BUNDLE/Contents/Resources/Logo.png"
+
 # Create Info.plist
 cat <<EOF > "$APP_BUNDLE/Contents/Info.plist"
 <?xml version="1.0" encoding="UTF-8"?>
@@ -32,6 +39,8 @@ cat <<EOF > "$APP_BUNDLE/Contents/Info.plist"
     <string>com.soundbite.app</string>
     <key>CFBundleName</key>
     <string>$APP_NAME</string>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
     <key>CFBundleShortVersionString</key>
     <string>1.0</string>
     <key>CFBundleVersion</key>
